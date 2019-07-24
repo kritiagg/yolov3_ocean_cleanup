@@ -1,26 +1,19 @@
 import os
-import glob
 
-def convertFilenames(folder):
-    for filename in os.listdir(folder):
-        os.chdir(folder)
-        new_name = str(filename)
-        new_name = new_name.replace(" ", "_")
-        os.rename(filename, new_name)
+folder = "/home/ziweideng_linux_gpu/GitHub/yolov3_ocean_cleanup/data/"
+edit_file = "3_set_combined_train.txt"
+#edit_file = "3_set_combined_train.txt"
 
-folder = "C:/Users/ziden/GitHub/plasticfreeoceans/Machinelearning/rivercam/images/river_cam/" #specify path
-convertFilenames(folder)
+# Sanity check
+if os.path.isfile(folder + './ocean_data/ocean_drone_images/2018.10.20_DJI_0001_BL.jpg'):
+	print("Sanity passed!")
+else:
+	print("Sanity failed!")
 
 
-# working = set()
 
-# for filename in os.listdir(folder):
-#     working.add(filename)
-#
-# with open("C:/Users/ziden/GitHub/plasticfreeoceans/Machinelearning/rivercam-Copy/corrected_train_rivercam.txt",
-#           "w") as g:
-#     with open(edit_file, "r") as f:
-#         for line in f:
-#
-#             if line.split(' ')[1] in working:
-#                 g.write(line)
+with open("corrected_" + edit_file, "w") as g:
+	with open(edit_file, "r") as f:
+		for line in f:
+			if os.path.isfile(folder + line.split( )[1]):
+				g.write(line)
