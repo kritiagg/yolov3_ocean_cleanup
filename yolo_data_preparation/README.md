@@ -15,6 +15,7 @@ river_data:
   similar to river_cam data, except that corrected_test_riverdrone is the version by removing the rows where images cannot be   found, by running remove_rows_without_image.py
 
 ocean_data:
+
   filter_acceptable_boxes.py: filter the boxes when an object get multiple bounding boxes
   1. ocean_drone:
   by running the ocean_to_yolo_csv_convertor.py convert the zooniverse conversion format to the yolo input format
