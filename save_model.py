@@ -14,11 +14,11 @@ from model import yolov3
 parser = argparse.ArgumentParser(description="YOLO-V3 test single image test procedure.")
 parser.add_argument("--anchor_path", type=str, default="./data/yolo_anchors.txt",
                     help="The path of the anchor txt file.")
-parser.add_argument("--new_size", nargs='*', type=int, default=[416, 416],
+parser.add_argument("--new_size", nargs='*', type=int, default=[1024, 1024],
                     help="Resize the input image with `new_size`, size format: [width, height]")
-parser.add_argument("--class_name_path", type=str, default="./data/coco.names",
+parser.add_argument("--class_name_path", type=str, default="./data/my_data_river.names",
                     help="The path of the class names.")
-parser.add_argument("--restore_path", type=str, default="./data/darknet_weights/yolov3.ckpt",
+parser.add_argument("--restore_path", type=str, default="data/2_set_combined_anchors_diff_batch_6best_model_Epoch_16_step_6629_mAP_0.6355_loss_8.3735_lr_0.0001",
                     help="The path of the weights to restore.")
 args = parser.parse_args()
 
@@ -43,6 +43,7 @@ with tf.Session() as sess:
     boxes, scores, labels = gpu_nms(pred_boxes, pred_scores, args.num_class, max_boxes=200, score_thresh=0.3, nms_thresh=0.45)
 
     # Load model into current session & therefore graph
+    print("Loading...")
     saver = tf.train.Saver()
     saver.restore(sess, args.restore_path)
 
@@ -56,8 +57,9 @@ with tf.Session() as sess:
         "labels": labels
     }
 
+    print("Saving...")
     tf.saved_model.simple_save(
         sess, './saved_model/', inputs, outputs
     )
 
-    print("done")
+    print("Done.")
