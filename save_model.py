@@ -1,5 +1,7 @@
 # coding: utf-8
 
+# Could be relevant: https://medium.com/@jsflo.dev/saving-and-loading-a-tensorflow-model-using-the-savedmodel-api-17645576527
+
 from __future__ import division, print_function
 
 import tensorflow as tf
