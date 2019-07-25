@@ -49,15 +49,18 @@ with tf.Session() as sess:
     saver = tf.train.Saver()
     saver.restore(sess, args.restore_path)
 
+    print("I/O tensors definitions & handling:")
     inputs = {
-        "picture": input_data,
+        "input_data": input_data,
     }
-
     outputs = {
         "boxes": boxes,
         "scores": scores,
         "labels": labels
     }
+    print(f"Output tensor names: {boxes.name}, {scores.name}, {labels.name}")
+    print(f"Input tensor names: {input_data.name}")
+
 
     print("Saving...")
     tf.saved_model.simple_save(
