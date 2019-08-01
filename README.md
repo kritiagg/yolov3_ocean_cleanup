@@ -13,7 +13,7 @@ We aim to become able to detect plastics in water anywhere. This repo is directe
 
 #### Why YOLOv3? 
 We are trying to solve the following problems:
-1. Better model for existing data
+#### 1. Better model for existing data
 
 We developed a model that predict plastic in a river from a camera mounted on a bridge, which achieves 68% mAP. The data and the model can be found in the rivercam folder for retraining and improvement. Images can be processed by the model using the image_processing folder.
 
@@ -35,7 +35,7 @@ We have some scenarios (Ghost net hunting!) in mind where we would like to send 
 Starting points:
 
 YOLOv3 seems like a very good candidate as it is very fast and light.
- 
+ ![yolov3_perf.PNG](./images/yolov3_perf.png)
 
 #### 3. Find the right model training data
 
@@ -52,6 +52,8 @@ In addition from testing whether we can train a reliable AI model on the dataset
 Adding other parameters to training like height of the drone etc.
 It is important to know that new cameras are in development. Among many other things, these cameras will have much higher image resolution, and will be able to determine distance from the water automatically. Two questions arise here. What impact does this have on suitability of our current learning structure? Should we incorporate the height in training as metadata, and how?
 
+#### Here is a sample output of the model:
+ ![yolov3_prediction.PNG](./images/yolov3_prediction.png)
 
 ## Here is the documentation related to the base YOLOv3.
 
