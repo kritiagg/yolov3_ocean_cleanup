@@ -6,10 +6,10 @@ We aim to become able to detect plastics in water anywhere. This repo is directe
 
 ### Datasets:
 
-River cam detection: images and labels available, we have a trained model based on Faster RCNN architecture.
-River drone detection: images and labels available
-Great Pacific Garbage Patch drone detection: images available, labels are work in progress, Find the link to labelling here
-Great Pacific Garbage Patch ship detection: images available, labels are work in progress
+- River cam detection: images and labels available, we have a trained model based on Faster RCNN architecture.
+- River drone detection: images and labels available
+- Great Pacific Garbage Patch drone detection: images available, labels are work in progress, Find the link to labelling here
+- Great Pacific Garbage Patch ship detection: images available, labels are work in progress
 
 #### Why YOLOv3? 
 We are trying to solve the following problems:
