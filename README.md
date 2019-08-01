@@ -32,8 +32,6 @@ The aim is to find a higher precision model to work on our problem.
 
 We have some scenarios (Ghost net hunting!) in mind where we would like to send out a drone while on an ocean expedition, where we would like to retrieve feedback from the drone directly, or where we want the drone to be able to stay with an object for longer to collect more data on it. For this, we should aim for a model that is light-weight, but that does not miss anything. In other words, high-recall, low-precision. Where the rivercam model is based on Faster R-CNN, an SSD, YOLO or Tensorflow-lite model would probably be more suitable.
 
-Starting points:
-
 YOLOv3 seems like a very good candidate as it is very fast and light.
  ![yolov3_perf.PNG](./images/yolov3_perf.png)
 
