@@ -1,4 +1,59 @@
-#  YOLOv3_TensorFlow
+#  YOLOv3_TensorFlow For ocean cleanup
+
+### What are we trying to do?
+
+We aim to become able to detect plastics in water anywhere. This repo is directed at providing context on what is available and what we aim to achieve.
+
+### Datasets:
+
+River cam detection: images and labels available, we have a trained model based on Faster RCNN architecture.
+River drone detection: images and labels available
+Great Pacific Garbage Patch drone detection: images available, labels are work in progress, Find the link to labelling here
+Great Pacific Garbage Patch ship detection: images available, labels are work in progress
+
+#### Why YOLOv3? 
+We are trying to solve the following problems:
+1. Better model for existing data
+
+We developed a model that predict plastic in a river from a camera mounted on a bridge, which achieves 68% mAP. The data and the model can be found in the rivercam folder for retraining and improvement. Images can be processed by the model using the image_processing folder.
+
+So far we have been working with the TFODAPI, of which a tutorial can be found here. While very useful, we expect that there are limitations regarding this and that we eventually need to move towards a more custom solution. Here are the starting points to other models
+
+This is list of tf models <good for starting point>: https://github.com/tensorflow/models/tree/master/research/object_detection
+https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
+These are state of the art models in object detection which have codes available. https://paperswithcode.com/sota/object-detection-on-coco
+Objects as points : 2019 paper which has a tensorflow implementation and has much higher mAP than Faster RCNN. https://paperswithcode.com/paper/objects-as-points
+The aim is to find a higher precision model to work on our problem.
+
+#### With YOLOv3 we were able to improve the mAP to 70% for the camera on bridge images. 
+ 
+
+#### 2. Light-weight models suitable for on-edge processing
+
+We have some scenarios (Ghost net hunting!) in mind where we would like to send out a drone while on an ocean expedition, where we would like to retrieve feedback from the drone directly, or where we want the drone to be able to stay with an object for longer to collect more data on it. For this, we should aim for a model that is light-weight, but that does not miss anything. In other words, high-recall, low-precision. Where the rivercam model is based on Faster R-CNN, an SSD, YOLO or Tensorflow-lite model would probably be more suitable.
+
+Starting points:
+
+YOLOv3 seems like a very good candidate as it is very fast and light.
+ 
+
+#### 3. Find the right model training data
+
+Different models for different datasets:
+While detecting plastic with cameras mounted on bridges are a huge step in the right direction, it still only allows us to detect plastic in only a small percentage of water areas. Most river cross-sections don't have bridges, and most ocean cross-sections certainly don't. In short, we have 3 different types of datasets:
+
+River drone detection: images and labels available
+Great Pacific Garbage Patch drone detection: images available, labels are work in progress, Find the link to labelling here
+Great Pacific Garbage Patch ship detection: images available, labels are work in progress
+
+Combining the datasets and experimenting
+In addition from testing whether we can train a reliable AI model on the dataset of each task specifically, we are also interested in learning whether we can enrich each other's models by combining data sets. For example, the river drone and river cam data seem fairly similar, can we combine those? For ocean drones we only have little data, can we also first train on river footage and then on ocean footage to enable accurate prediction?
+
+Adding other parameters to training like height of the drone etc.
+It is important to know that new cameras are in development. Among many other things, these cameras will have much higher image resolution, and will be able to determine distance from the water automatically. Two questions arise here. What impact does this have on suitability of our current learning structure? Should we incorporate the height in training as metadata, and how?
+
+
+## Here is the documentation related to the base YOLOv3.
 
 ### 1. Introduction
 
