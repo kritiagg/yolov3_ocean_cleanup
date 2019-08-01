@@ -39,17 +39,17 @@ YOLOv3 seems like a very good candidate as it is very fast and light.
 
 #### 3. Find the right model training data
 
-Different models for different datasets:
+*Different models for different datasets:
 While detecting plastic with cameras mounted on bridges are a huge step in the right direction, it still only allows us to detect plastic in only a small percentage of water areas. Most river cross-sections don't have bridges, and most ocean cross-sections certainly don't. In short, we have 3 different types of datasets:
 
-River drone detection: images and labels available
+*River drone detection: images and labels available
 Great Pacific Garbage Patch drone detection: images available, labels are work in progress, Find the link to labelling here
 Great Pacific Garbage Patch ship detection: images available, labels are work in progress
 
-Combining the datasets and experimenting
+*Combining the datasets and experimenting
 In addition from testing whether we can train a reliable AI model on the dataset of each task specifically, we are also interested in learning whether we can enrich each other's models by combining data sets. For example, the river drone and river cam data seem fairly similar, can we combine those? For ocean drones we only have little data, can we also first train on river footage and then on ocean footage to enable accurate prediction?
 
-Adding other parameters to training like height of the drone etc.
+*Adding other parameters to training like height of the drone etc.
 It is important to know that new cameras are in development. Among many other things, these cameras will have much higher image resolution, and will be able to determine distance from the water automatically. Two questions arise here. What impact does this have on suitability of our current learning structure? Should we incorporate the height in training as metadata, and how?
 
 #### Here is a sample output of the model:
