@@ -66,6 +66,12 @@ It is important to know that new cameras are in development. Among many other th
 - Fix the k-means
 - Experiment with hyper-parameters
 
+#### Logistics:
+- All the code to manipulate the data and bring to the format taken by yolov3 model format (and a readme for that) can be found under [https://github.com/kritiagg/yolov3_ocean_cleanup/tree/master/yolo_data_preparation]
+- The code to convert to saved_model format in tf (for deployment) can be found under:
+[https://github.com/kritiagg/yolov3_ocean_cleanup/blob/master/save_model.py]
+- To restore the model saved by the saved_model format, sample file can be found under:
+[https://github.com/kritiagg/yolov3_ocean_cleanup/blob/master/save_model.py]
 ## Here is the documentation related to the base YOLOv3.
 
 ### 1. Introduction
